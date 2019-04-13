@@ -45,14 +45,20 @@
      <textarea id="code" spellcheck="false" onkeyup="smallDelay()">
 # Demo Code
 input(256,256,3)
-conv(128,128,64)
-conv(64,64,128)
-pool(32,32,128)
-conv(16,16,256)
-conv(8,8,512)
-pool(4,4,512)
-dense(1,1,256)
-dense(1,1,10)
+conv(256,256,64)
+conv(256,256,64)
+pool(128,128,64)
+conv(128,128,128)
+conv(128,128,256)
+conv(128,128,256)
+pool(64,64,256)
+conv(64,64,256)
+conv(32,32,256)
+pool(16,16,256)
+conv(8,8,256)
+conv(8,8,64)
+dense(1,1,4096)
+dense(1,1,1000)
      </textarea>
    </div>
 
