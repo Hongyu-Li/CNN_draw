@@ -7,3 +7,11 @@ In order to draw your architecture, you only need to type your network as the de
 If you have any question or advise, please feel free to contact me at hl3099@columbia.edu. 
 
 [Click and Try me!](https://hongyu-li.github.io/CNN_draw/)
+
+## Acknowledgments
+Idea and code inspired by [Cédric Bovar](https://github.com/cbovar). 
+
+## Something Else...
+This demo is just an alpha version, if you're also interested in improving it, feel free to contact me!
+
+### \### Small is Big.
