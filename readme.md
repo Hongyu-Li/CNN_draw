@@ -12,6 +12,6 @@ If you have any question or advise, please feel free to contact me at hl3099@col
 Idea and code inspired by [Cédric Bovar](https://github.com/cbovar). 
 
 ## Something Else...
-This demo is just an alpha version, if you're also interested in improving it, feel free to contact me!
+This demo is just an alpha version, if you're also interested in improving it, please feel free to contact me! 
 
 ### \### Small is Big.
