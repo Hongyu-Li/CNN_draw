@@ -24,6 +24,7 @@ function shadeColor(color, percent) {
 function drawCube(x,y,w,h,d,color){
   var canvas = document.getElementById("draw-canvas");
   var ctx = canvas.getContext('2d');
+
   //draw cube
   ctx.beginPath();
   ctx.moveTo(x, y);
@@ -63,8 +64,10 @@ function drawCube(x,y,w,h,d,color){
 function draw(text){
   var canvas = document.getElementById("draw-canvas");
   var ctx = canvas.getContext('2d');
+  ctx.font = "8px Comic Sans MS";
   //clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var dimsText;
   var offsetX;
   var offsetY = 80;
   var map = createMap();
@@ -79,19 +82,36 @@ function draw(text){
         h = parseInt(dims[0]);
         w = parseInt(dims[1]);
         d = parseInt(dims[2]);
+        dimsText = h.toString() + 'x' + w.toString() + 'x' + d.toString();
         h = h /2 + 5;
         w = w /2 + 5;
         d = Math.log(d)*10;  //filter numbers rescale
 
+        //if we should enlarge the width of canvas
+        if (offsetX + d + w/2 + 5  > canvas.width){
+          var data = ctx.getImageData(0,0,canvas.width,canvas.height);
+          var width = offsetX + d + w/2 + 8;
+          document.getElementsByTagName('body')[0].style.width = width + 'px';
+          canvas.width = width;
+          ctx.putImageData(data,0,0);
+        }else{
+          document.getElementsByTagName('body')[0].style.width = '100%';
+        }
+
         if (code[0] == 'input'){
           mid = offsetY + h/2 + w/2;
           offsetX = 20 + w/2;
+          canvas.height = offsetY + h + w/2 +40;  //input size is the biggest no matter in CNN or ResNet
           drawCube(offsetX,offsetY,w,h,d,color);
+          ctx.fillStyle = 'black';
+          ctx.fillText(dimsText, offsetX + d/6, offsetY - 8);
           offsetX += d + 5;
         }else{
           offsetY = mid - h/2 - w/2;
           offsetX += w/2;
           drawCube(offsetX,offsetY,w,h,d,color);
+          ctx.fillStyle = 'black';
+          ctx.fillText(dimsText, offsetX + d/6, offsetY - 8);
           offsetX += d + 5;
         }
       }

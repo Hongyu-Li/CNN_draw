@@ -5,8 +5,7 @@
 
 /* CSS file for index.html */
 body {background-color: #fcf9f4;
-      width: 100%;
-      overflow-x: hidden;}
+      width: 100%;}
 
 #nav_bar {background-color: #1a1a1a;
           color: white;
@@ -17,13 +16,13 @@ body {background-color: #fcf9f4;
              padding: 0;
              margin: 0;}
 #nav_bar li:first-child {padding-top: 20px;
-                         padding-left: 100px;
-                         margin-right: 100px;}
+                         padding-left: 10%;
+                         margin-right: 10%;}
 #nav_bar li {display: inline;
              float: left;
              padding-top: 30px;
              padding-right: 0px;
-             padding-left: 300px;}
+             padding-left: 25%;}
 #nav_bar li:last-child span {border: 1px solid white;
                              border-radius: 4px;
                              padding: 5px 15px;
@@ -42,13 +41,13 @@ body {background-color: #fcf9f4;
 }
 
 #dot {height: 15px;
-       width: 15px;
-       background-color: #abce9a;
-       border-radius: 50%;
-       position: absolute;
-       top: 39px;
-       left: 520px;
-       -webkit-animation: twinkling 1s infinite ease-in-out;}
+      width: 15px;
+      background-color: #abce9a;
+      border-radius: 50%;
+      position: absolute;
+      top: 39px;
+      left: 46%;
+      -webkit-animation: twinkling 1s infinite ease-in-out;}
 
 #home img{border-radius: 6px;}
 
@@ -56,15 +55,15 @@ body {background-color: #fcf9f4;
 
 .instruction {background-color: rgba(0,0,0,0.1);
               color: white;
-              padding: 70px 100px 10px 100px;}
+              padding: 70px 10% 10px 10%;}
 h1.hello {color: #1a1a1a}
 p {font-size: 20px;
-   padding: 50px 0px;
+   padding: 5% 0px;
    color: #4d4d4d;
    line-height: 30px;}
 
 #text-left {height:250px;
-            width: 200px;
+            width: 16%;
             float: left;
             border-right: 1px solid white;
             font-size: 20px;
@@ -89,5 +88,5 @@ textarea {
 
 #draw-field {
   width: 99%;
-  margin: 10px 5px; 
+  margin: 1% 0.5%; 
 }
