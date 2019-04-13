@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+  <link rel="icon" type="image/png" href="imgs/me.png" sizes="32x32">
+  <script src='utils.js'></script>
+  <script type="text/javascript">
+    var Timer;
+    var draw = draw;
+    window.onload = function(){
+      draw(document.getElementById('code').value);
+    };
+    function smallDelay() {
+      clearTimeout(Timer);
+      Timer = setTimeout(function () {
+        draw(document.getElementById('code').value);
+      }, 500);
+    };
+  </script>
+  <title>Draw CNN</title>
+</head>
+
+<body>
+   <!---------nav bar---------->
+   <div id= "nav_bar">
+     <ul>
+        <li><a href="index.html" id="home" title="Return Home" data-placement="right"> <img src="imgs/me.png" width="50px" height='50px'/></a></li>
+        <li><span id="dot"></span>Undergoing</li>
+        <li><span><a href='https://github.com/Hongyu-Li'>Get in Touch</a></span></li>
+      </ul>
+    </div>
+
+   <!---------short instruction part-------->
+   <div class='instruction'>
+       <h1 class="hello">I want to help you to draw CNN</h1>
+       <p>Hey, I'm Hongyu, thank you for taking the time to visit here. I know how annoying it is to draw neural network architecture by hand. That's also the reason why I want to develop this demo to help you. In order to draw your architecture, you only need to type your network as the demo code shows. The code could be read as name_of_layer (height,width,number of filters). Now, we only support CNN's four types of operations because other operations would not change the size of output in each layer. <br><br>It's just my alpha version, there is a lot of room for improvements. If you have any question or advise, please feel free to contact me at hl3099@columbia.edu.</p>
+   </div>
+
+   <!---------code part-------->
+   <div class='code-input'>
+     <div id='text-left'>Type Your Code</div>
+     <textarea id="code" spellcheck="false" onkeyup="smallDelay()">
+# Demo Code
+input(256,256,3)
+conv(128,128,64)
+conv(64,64,128)
+pool(32,32,128)
+conv(16,16,256)
+conv(8,8,512)
+pool(4,4,512)
+dense(1,1,256)
+dense(1,1,10)
+     </textarea>
+   </div>
+
+   <!---------draw part-------->
+   <div id='draw-field'>
+     <canvas id="draw-canvas" height='300px' width='1188px'>
+     Your browser does not support the HTML5 canvas tag.
+     </canvas>
+   </div>
+</body>
