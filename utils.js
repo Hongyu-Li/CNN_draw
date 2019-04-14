@@ -64,12 +64,13 @@ function drawCube(x,y,w,h,d,color){
 function draw(text){
   var canvas = document.getElementById("draw-canvas");
   var ctx = canvas.getContext('2d');
-  ctx.font = "8px Comic Sans MS";
   //clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var layers = new Array();
   var dimsText;
   var offsetX;
   var offsetY = 80;
+  var startL = canvas.width/3;
   var map = createMap();
   var lines = text.split('\n');
   for (var i=0; i < lines.length;i++){
@@ -98,12 +99,14 @@ function draw(text){
           document.getElementsByTagName('body')[0].style.width = '100%';
         }
 
+
         if (code[0] == 'input'){
           mid = offsetY + h/2 + w/2;
           offsetX = 20 + w/2;
           canvas.height = offsetY + h + w/2 +40;  //input size is the biggest no matter in CNN or ResNet
           drawCube(offsetX,offsetY,w,h,d,color);
           ctx.fillStyle = 'black';
+          ctx.font = "8px Comic Sans MS";
           ctx.fillText(dimsText, offsetX + d/6, offsetY - 8);
           offsetX += d + 5;
         }else{
@@ -111,8 +114,20 @@ function draw(text){
           offsetX += w/2;
           drawCube(offsetX,offsetY,w,h,d,color);
           ctx.fillStyle = 'black';
+          ctx.font = "8px Comic Sans MS";
           ctx.fillText(dimsText, offsetX + d/6, offsetY - 8);
           offsetX += d + 5;
+        }
+
+        //add legend
+        if (layers.includes(code[0]) === false){
+          ctx.font = "15px arial";
+          ctx.fillStyle = color;
+          ctx.fillRect(startL,10,15,15);
+          ctx.fillStyle = 'black';
+          ctx.fillText(code[0],startL+19,22);
+          layers.push(code[0]);
+          startL += 100;
         }
       }
     }
